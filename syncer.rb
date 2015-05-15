@@ -15,7 +15,7 @@ class Syncer < Formula
   end
 
   def install
-    resource("fsmonitor").stage { system "npm", "install", "-g", "fsmontior" }
+    resource("fsmonitor").stage { system "npm", "install", "-g", "fsmonitor" }
     bin.install "syncer"
     bin.install "syncit"
   end
