@@ -10,17 +10,16 @@ class Syncer < Formula
 
   depends_on "node"
 
-  resource "fsmonitor" do
-      url "https://github.com/andreyvit/fsmonitor.js/archive/v0.2.4.tar.gz"
-  end
-
   def install
-    resource("fsmonitor").stage { system("npm install -g fsmonitor") }
     bin.install "syncer"
     bin.install "syncit"
   end
 
+  def post_install
+    system "npm", "install", "-g", "fsmonitor"
+  end
+
   test do
-    system "#{bin}/program"
+    system "#{bin}/syncer"
   end
 end
